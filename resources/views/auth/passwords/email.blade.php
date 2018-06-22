@@ -41,6 +41,13 @@
                                 </button>
                             </div>
                         </div>
+
+
+                        <div class="form-group row mb-0">
+                        <a class="btn btn-link" href="{{ route('home') }}">
+                            {{ __('Back to Login') }}
+                        </a>
+                        </div>
                     </form>
                 </div>
             </div>
