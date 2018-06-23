@@ -22,8 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', function () {
    return view('dashboard');
 })->middleware('auth');
+
 Route::get('/changepassword', function () {
     return view('changepassword');
+ })->middleware('auth');
+
+ Route::get('/profile', function () {
+    return view('profile');
  })->middleware('auth');
  
 

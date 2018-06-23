@@ -2,7 +2,7 @@
  <header class="main-header">
 
 <!-- Logo -->
-<a href="./admin" class="logo">
+<a href="{!! url('/home'); !!}" class="logo">
   <!-- mini logo for sidebar mini 50x50 pixels -->
   <span class="logo-mini"><b>ALD</b></span>
   <!-- logo for regular state and mobile devices -->
@@ -65,8 +65,8 @@
           </li>
           <li class="user-footer">
             <div>
-              <a href="#" class="btn btn-primary btn-flat">Profile</a>
-              <a href="./changepassword" class="btn btn-warning btn-flat">Change Password</a>
+              <a href="{!! url('/profile'); !!}" class="btn btn-primary btn-flat">Profile</a>
+              <a href="{!! url('/changepassword'); !!}" class="btn btn-warning btn-flat">Change Password</a>
               <a class="btn btn-danger btn-flat" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
