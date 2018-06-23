@@ -14,22 +14,22 @@
       <p>Super Admin</p>
     </div>
   </div>
-
+  <?php $urlpath=Request::path();?>
   <!-- Sidebar Menu -->
   <ul class="sidebar-menu" data-widget="tree">
     <li class="header">NAVIGATION</li>
     <!-- Optionally, you can add icons to the links -->
-    <li class="active"><a href="{!! url('/dashboard'); !!}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+    <li class="<?php echo ($urlpath == 'dashboard') ? "active" : ""; ?>"><a href="{!! url('/dashboard'); !!}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
-    <li class="treeview">
+    <li class="treeview <?php echo ($urlpath == 'admins' ||$urlpath == 'roles' ) ? "active" : ""; ?>">
       <a href="#"><i class="fa fa-users"></i> <span>Admins</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
       </a>
       <ul class="treeview-menu">
-        <li><a href="#">Roles</a></li>
-        <li><a href="{!! url('/admins'); !!}">Manage Admins</a></li>
+      <li class="<?php echo ($urlpath == 'roles') ? "active" : ""; ?>"><a href="{!! url('/roles'); !!}">Roles</a></li>
+        <li class="<?php echo ($urlpath == 'admins') ? "active" : ""; ?>"><a href="{!! url('/admins'); !!}">Manage Admins</a></li>
       </ul>
     </li>
     <!-- Multi Level -->

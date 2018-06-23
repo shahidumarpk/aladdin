@@ -9,15 +9,8 @@
 <!-- Sweet Alert JS -->
 <script src="{{ asset('js/sweetalert.min.js') }}" defer></script>
 
-<!-- ChartJS -->
-<script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
-<!-- AdminLTE App -->
-
-<script src="{{ asset('dist/js/demo.js') }}"></script>
-<!-- File Input -->
-<script src="{{ asset('js/fileinput.min.js') }}"></script>
 
 <!-- SlimScroll -->
 <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
@@ -29,43 +22,50 @@
      Both of these plugins are recommended to enhance the
      user experience. -->
      <!-- page script -->
-<script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+@if (\Request::is('admins') or \Request::is('roles') )  
+  <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+  <script>
+    $(function () {
+      $('#example1').DataTable()
+      $('#example2').DataTable({
+        'paging'      : true,
+        'lengthChange': false,
+        'searching'   : false,
+        'ordering'    : true,
+        'info'        : true,
+        'autoWidth'   : false
+      })
     })
-  })
-</script>
+  </script>
+@endif
 
+@if (\Request::is('profile'))  
+<script src="{{ asset('js/fileinput.min.js') }}"></script>
+  <script>
 
-     <script>
-
-$("#avatar-1").fileinput({
-    overwriteInitial: true,
-    maxFileSize: 1500,
-    showClose: false,
-    showCaption: false,
-    browseLabel: '',
-    removeLabel: '',
-    browseOnZoneClick: true,
-    browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
-    removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
-    removeTitle: 'Cancel or reset changes',
-    elErrorContainer: '#kv-avatar-errors-1',
-    msgErrorClass: 'alert alert-block alert-danger',
-    defaultPreviewContent: '<img src="{{ asset ('img/default_avatar_male.jpg')}}" alt="Your Avatar">',
-    layoutTemplates: {main2: '{preview} {browse}'},
-    allowedFileExtensions: ["jpg", "png", "gif"]
-});
-</script>
+  $("#avatar-1").fileinput({
+      overwriteInitial: true,
+      maxFileSize: 1000,
+      showClose: false,
+      showCaption: false,
+      browseLabel: '',
+      removeLabel: '',
+      browseOnZoneClick: true,
+      browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+      removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+      removeTitle: 'Cancel or reset changes',
+      elErrorContainer: '#kv-avatar-errors-1',
+      msgErrorClass: 'alert alert-block alert-danger',
+      defaultPreviewContent: '<img src="{{ asset ('img/default_avatar_male.jpg')}}" alt="Your Avatar">',
+      layoutTemplates: {main2: '{preview} {browse}'},
+      allowedFileExtensions: ["jpg", "png", "gif"]
+  });
+  </script>
+@endif
+@if (\Request::is('dashboard'))  
+<!-- ChartJS -->
+<script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
 <script>
   $(function () {
     /* ChartJS
@@ -208,3 +208,4 @@ var areaChartData = {
 
   })
 </script>
+@endif
