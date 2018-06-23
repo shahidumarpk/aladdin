@@ -83,8 +83,4 @@
               <!-- /.box-footer -->
             </form>
 </div>
-          
-
- <!-- the fileinput plugin initialization -->
-
 @endsection

@@ -30,5 +30,9 @@ Route::get('/changepassword', function () {
  Route::get('/profile', function () {
     return view('profile');
  })->middleware('auth');
+
+ Route::get('/admins', function () {
+    return view('admins');
+ })->middleware('auth');
  
 
