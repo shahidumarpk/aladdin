@@ -46,7 +46,7 @@
                 <div class="col-sm-8">
                 <div class="box-body" >
                   <div class="form-group">
-                    <label for="oldpassword" class="col-sm-3 control-label">First Name</label>
+                    <label for="fname" class="col-sm-3 control-label">First Name</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
@@ -54,7 +54,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="oldpassword" class="col-sm-3 control-label">Last Name</label>
+                    <label for="lname" class="col-sm-3 control-label">Last Name</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
@@ -63,7 +63,7 @@
 
 
                   <div class="form-group">
-                    <label for="oldpassword" class="col-sm-3 control-label">Phone Number</label>
+                    <label for="phonenumber" class="col-sm-3 control-label">Phone Number</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number">

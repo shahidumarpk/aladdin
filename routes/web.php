@@ -40,4 +40,13 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
  }])->middleware('auth');
 
  
+ //Route::get('profile', 'UserController@show')->middleware('auth');
+//Create user
+ //Route::post('admins', 'UserController@store')->middleware('auth');
+
+ Route::resource('admins', 'UserController');
+
+ /*Route::post('/addadmins', ['as' => 'addadmins' , function () {
+    return view('admins');
+ }])->middleware('auth');*/
 

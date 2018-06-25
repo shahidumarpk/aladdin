@@ -16,7 +16,7 @@
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-blue.min.css') }}">
-  @if (\Request::is('profile') or \Request::is('admins'))
+  @if (\Request::is('profile') or \Request::is('admins/create'))
   <link rel="stylesheet" href="{{ asset('css/fileinput.min.css') }}">
   @endif
   
@@ -30,3 +30,6 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+<!-- jQuery 3 -->
+<script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>

@@ -1,7 +1,6 @@
 <!-- REQUIRED JS SCRIPTS -->
 
-<!-- jQuery 3 -->
-<script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
@@ -41,7 +40,7 @@
   </script>
 @endif
 
-@if (\Request::is('profile') or \Request::is('admins'))  
+@if (\Request::is('profile') or \Request::is('admins/create'))  
 <script src="{{ asset('js/fileinput.min.js') }}"></script>
   <script>
 
