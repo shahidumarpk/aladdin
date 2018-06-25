@@ -8,7 +8,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example1" class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                   <th>Role Name</th>

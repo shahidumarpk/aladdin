@@ -23,8 +23,9 @@
      user experience. -->
      <!-- page script -->
 @if (\Request::is('admins') or \Request::is('roles') )  
-  <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
   <script>
     $(function () {
       $('#example1').DataTable()
@@ -40,7 +41,7 @@
   </script>
 @endif
 
-@if (\Request::is('profile'))  
+@if (\Request::is('profile') or \Request::is('admins'))  
 <script src="{{ asset('js/fileinput.min.js') }}"></script>
   <script>
 

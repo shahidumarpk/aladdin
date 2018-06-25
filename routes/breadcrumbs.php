@@ -1,7 +1,7 @@
 <?php
 // Home
 Breadcrumbs::for('dashboard', function ($trail) {
-    $trail->add('Home', route('dashboard'), ['custom' => 'Custom data for Home']);
+    $trail->add('Home', route('dashboard'));
 
 });
 //Manage admins and roles

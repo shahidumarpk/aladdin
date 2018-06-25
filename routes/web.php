@@ -38,5 +38,6 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
  Route::get('/admins', ['as' => 'admins' , function () {
     return view('admins');
  }])->middleware('auth');
+
  
 
