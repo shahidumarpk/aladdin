@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('home');
 });
@@ -35,18 +33,11 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
     return view('roles');
  }])->middleware('auth');
 
- Route::get('/admins', ['as' => 'admins' , function () {
-    return view('admins');
- }])->middleware('auth');
+
+ Route::get('/resetpassword/{id}', 'UserController@resetPassword')->middleware('auth');
+ Route::get('/admins/deactivate/{id}', 'UserController@deactivate')->middleware('auth');
+ Route::get('/admins/active/{id}', 'UserController@active')->middleware('auth');
+ Route::resource('admins', 'UserController')->middleware('auth');
 
  
- //Route::get('profile', 'UserController@show')->middleware('auth');
-//Create user
- //Route::post('admins', 'UserController@store')->middleware('auth');
-
- Route::resource('admins', 'UserController');
-
- /*Route::post('/addadmins', ['as' => 'addadmins' , function () {
-    return view('admins');
- }])->middleware('auth');*/
 

@@ -39,10 +39,37 @@
     })
   </script>
 @endif
+@if(\Request::is('admins'))
+<script>
+  function archiveFunction(formid) {
+    event.preventDefault(); // prevent form submit
+      
+    swal({
+            title: "Delete",
+            text: "Are you sure want to delete?", 
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            $('#'+formid).submit();
+          } 
+        });
+      
 
-@if (\Request::is('profile') or \Request::is('admins/create'))  
+    }
+</script>  
+@endif
+
+@if (\Request::is('profile') or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit')  
 <script src="{{ asset('js/fileinput.min.js') }}"></script>
   <script>
+  @if(Route::currentRouteName()=='admins.edit' or \Request::is('profile') )
+      var avatarName="{{ asset ('img/staff/'.$user->avatar)}}";
+    @else
+    var avatarName='{{ asset ('img/default_avatar_male.jpg') }}';
+    @endif
 
   $("#avatar-1").fileinput({
       overwriteInitial: true,
@@ -57,7 +84,7 @@
       removeTitle: 'Cancel or reset changes',
       elErrorContainer: '#kv-avatar-errors-1',
       msgErrorClass: 'alert alert-block alert-danger',
-      defaultPreviewContent: '<img src="{{ asset ('img/default_avatar_male.jpg')}}" alt="Your Avatar">',
+      defaultPreviewContent: '<img src="'+ avatarName +'" alt="Your Avatar" width="100%">',
       layoutTemplates: {main2: '{preview} {browse}'},
       allowedFileExtensions: ["jpg", "png", "gif"]
   });

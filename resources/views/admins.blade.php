@@ -1,5 +1,13 @@
 @extends('layouts.mainlayout')
 @section('content')
+@if(session('success'))
+    <script>
+      $( document ).ready(function() {
+        swal("Success", "{{session('success')}}", "success");
+      });
+      
+    </script>
+@endif
 
 <div class="row">
         <div class="col-xs-12">
@@ -36,13 +44,26 @@
                       <span class="btn btn-danger">Deactive</span>
                       @endif
                     </td>
+                     <!-- For Delete Form begin -->
+                    <form id="form{{$user['id']}}" action="{{action('UserController@destroy', $user['id'])}}" method="post">
+                        @csrf
+                        <input name="_method" type="hidden" value="DELETE">
+                    </form>
+                    <!-- For Delete Form Ends -->
                     <td>
                       <a href="{!! url('/admins/'.$user['id']); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
                       <a href="{!! url('/admins/'.$user['id'].'/edit'); !!}"  class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
-                      <a href="{!! url('/admins/destroy'); !!}"  class="btn btn-danger" title="Delete"><i class="fa fa-trash"></i> </a>
-                      <a href="{!! url('/admins'); !!}"  class="btn btn-info" title="Active"><i class="fa fa-check"></i> </a>
-                      <a href="{!! url('/admins'); !!}"  class="btn btn-warning" title="Deactivate"><i class="fa fa-times"></i> </a>
+                      @if ($user['status'] === 1)
+                        <a href="{!! url('/admins/deactivate/'.$user['id']); !!}"  class="btn btn-warning" title="Deactivate"><i class="fa fa-times"></i> </a>
+                      @else
+                        <a href="{!! url('/admins/active/'.$user['id']); !!}"  class="btn btn-info" title="Active"><i class="fa fa-check"></i> </a>
+                      @endif
+                      <button class="btn btn-danger" onclick="archiveFunction('form{{$user['id']}}')"><i class="fa fa-trash"></i></button>
+                      <a href="{!! url('/resetpassword/'.$user->id); !!}"  class="btn btn-info" title="Reset Password"><i class="fa fa-key"></i> </a>
                     </td>
+                   
+                    
+
                   </tr>
                   @endforeach
                 </tbody>

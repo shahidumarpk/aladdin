@@ -16,7 +16,7 @@
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-blue.min.css') }}">
-  @if (\Request::is('profile') or \Request::is('admins/create'))
+  @if (\Request::is('profile') or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit')
   <link rel="stylesheet" href="{{ asset('css/fileinput.min.css') }}">
   @endif
   

@@ -1,4 +1,5 @@
 <?php
+/*
 // Home
 Breadcrumbs::for('dashboard', function ($trail) {
     $trail->add('Home', route('dashboard'));
@@ -23,4 +24,4 @@ Breadcrumbs::for('changepassword', function ($trail) {
 Breadcrumbs::for('profile', function ($trail) {
     $trail->parent('dashboard');
     $trail->add('Profile', route('profile'));
-});
+});*/

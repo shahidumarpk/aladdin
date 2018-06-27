@@ -48,7 +48,7 @@
                           <input id="avatar-1" name="avatar-1" type="file">
                       </div>
                   </div>
-                  <div class="kv-avatar-hint"><small>Select file < 1500 KB</small></div>
+                  <div class="kv-avatar-hint"><small>Select file < 1000 KB</small></div>
               </div> 
               <div class="col-md-8">
                 <div class="form-group">
@@ -123,7 +123,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <a href="{!! url('/admins'); !!}" class="btn btn-default">Cancel</a>
-                <button type="submit" class="btn btn-info pull-right">Add Staff</button>
+                <button type="submit" class="btn btn-info pull-right">Add</button>
               </div>
               <!-- /.box-footer -->
             </form>
