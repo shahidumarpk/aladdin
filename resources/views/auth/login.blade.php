@@ -1,6 +1,14 @@
 @extends('layouts.app')
-
 @section('content')
+@if(session('error'))
+    <script>
+      $( document ).ready(function() {
+        swal("Failed", "{{session('error')}}", "error");
+      });
+      
+    </script>
+    You have an error
+@endif
 <div class="login-box">
   <div class="login-logo">
   <img src="{{ asset('img/logo.png') }}" width="310px">

@@ -17,6 +17,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/otp', ['as' => 'otp' , function () {
+    return view('otp');
+ }])->middleware('auth');
+
 Route::get('/dashboard', ['as' => 'dashboard' , function () {
    return view('dashboard');
 }])->middleware('auth');

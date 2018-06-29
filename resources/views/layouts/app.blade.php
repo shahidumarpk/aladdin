@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <!-- Scripts -->
+    <!-- jQuery 3 -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>  
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/sweetalert.min.js') }}" defer></script>
 
@@ -46,8 +48,7 @@
             @yield('content')
         </main>
     </div>
-    <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+    
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
