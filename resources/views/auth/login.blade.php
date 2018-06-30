@@ -7,7 +7,6 @@
       });
       
     </script>
-    You have an error
 @endif
 <div class="login-box">
   <div class="login-logo">

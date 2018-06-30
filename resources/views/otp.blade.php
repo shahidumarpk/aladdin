@@ -1,25 +1,26 @@
 @extends('layouts.app')
 @section('content')
-<pre>
-<?php
-$user = Auth::user();
-echo $user->otp;
-
-?>
-</pre>
+@if(session('error'))
+    <script>
+      $( document ).ready(function() {
+        swal("Failed", "{{session('error')}}", "error");
+      });
+      
+    </script>
+@endif
 <div class="login-box">
   <div class="login-logo">
   <img src="{{ asset('img/logo.png') }}" width="310px">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <h3 class="login-box-msg">Welcome {{$user->fname}} {{$user->lname}}</h3>
+    <h3 class="login-box-msg">Welcome <?php echo session()->get('fname').' '.session()->get('lname')?> </h3>
     <p class="login-box-msg text-red">Please enter your <b>OTP</b> to proceed further.<br><b>OTP</b> has been sent on your registered mobile number.</p>
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="./otp">
     @csrf
       <div class="form-group has-feedback">
-        <input id="otp" type="number" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="otp" value="{{ old('otp') }}" placeholder="One Time Password" required autofocus >
+        <input id="otp" type="number" class="form-control {{ $errors->has('otp') ? ' is-invalid' : '' }}" name="otp" value="{{ old('otp') }}" placeholder="One Time Password" required autofocus >
         <span class="fa fa-key form-control-feedback"></span>
         @if ($errors->has('otp'))
             <span class="invalid-feedback">
@@ -29,18 +30,13 @@ echo $user->otp;
       </div>
       
       <div class="row">
-        <div class="pull-right">
+        <div class="pull-right" style="margin-right: 15px;">
           <button type="submit" class="btn btn-primary btn-flat" style="background-color: #cfa54b;">
             {{ __('Login') }}
           </button>
-          <button class="btn btn-danger btn-flat" href="{{ route('logout') }}" style="margin-right: 15px;"
-                  onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
-          </button>
         </div>
-        
-        <p class="login-box-msg text-red">Your OTP is: 123456</p>
+        <!-- Need to Remove below line -->
+        <p class="login-box-msg text-red">Your OTP is: <?php echo session()->get('otp');?></p>
         <!-- /.col -->
       </div>
     </form>

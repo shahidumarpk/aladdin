@@ -13,13 +13,13 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+
 Auth::routes();
-
+// Two Factor Authentication
+Route::get('/otp', 'TwoFactorController@showTwoFactorForm');
+Route::post('/otp', 'TwoFactorController@verifyTwoFactor');
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/otp', ['as' => 'otp' , function () {
-    return view('otp');
- }])->middleware('auth');
 
 Route::get('/dashboard', ['as' => 'dashboard' , function () {
    return view('dashboard');
