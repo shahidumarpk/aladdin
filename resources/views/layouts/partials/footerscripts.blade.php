@@ -21,7 +21,7 @@
      Both of these plugins are recommended to enhance the
      user experience. -->
      <!-- page script -->
-@if (\Request::is('admins') or \Request::is('roles') )  
+@if (\Request::is('admins') or \Request::is('roles') or \Request::is('categories') )  
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
@@ -39,7 +39,7 @@
     })
   </script>
 @endif
-@if(\Request::is('admins'))
+@if(\Request::is('admins')  or \Request::is('categories'))
 <script>
   function archiveFunction(formid) {
     event.preventDefault(); // prevent form submit
@@ -62,13 +62,13 @@
 </script>  
 @endif
 
-@if (\Request::is('profile') or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit')  
+@if (\Request::is('profile') or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit' or \Request::is('categories/create') or Route::currentRouteName()=='categories.edit')  
 <script src="{{ asset('js/fileinput.min.js') }}"></script>
   <script>
   @if(Route::currentRouteName()=='admins.edit' or \Request::is('profile') )
       var avatarName="{{ asset ('img/staff/'.$user->avatar)}}";
     @else
-    var avatarName='{{ asset ('img/default_avatar_male.jpg') }}';
+    var avatarName='{{ asset ('img/placeholder.png') }}';
     @endif
 
   $("#avatar-1").fileinput({

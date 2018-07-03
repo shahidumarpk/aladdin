@@ -33,15 +33,14 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
     return view('profile');
  }])->middleware('auth');
 
- Route::get('/roles', ['as' => 'roles' , function () {
-    return view('roles');
- }])->middleware('auth');
+ Route::resource('roles', 'RolesController')->middleware('auth');
 
 
+ //Sub admins/staff
  Route::get('/resetpassword/{id}', 'UserController@resetPassword')->middleware('auth');
  Route::get('/admins/deactivate/{id}', 'UserController@deactivate')->middleware('auth');
  Route::get('/admins/active/{id}', 'UserController@active')->middleware('auth');
  Route::resource('admins', 'UserController')->middleware('auth');
 
- 
-
+ //Category
+ Route::resource('categories', 'CategoryController')->middleware('auth');

@@ -21,21 +21,22 @@ $user = Auth::user();
   <!-- Sidebar Menu -->
   <ul class="sidebar-menu" data-widget="tree">
     <li class="header">NAVIGATION</li>
-    <!-- Optionally, you can add icons to the links -->
+    
     <li class="<?php echo ($urlpath == 'dashboard') ? "active" : ""; ?>"><a href="{!! url('/dashboard'); !!}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
-    <li class="treeview <?php echo ($urlpath == 'admins' || $urlpath == 'roles' || Route::currentRouteName()=='admins.edit' || Route::currentRouteName()=='admins.create' || Route::currentRouteName()=='admins.show' ) ? "active" : ""; ?>">
+    <li class="treeview <?php echo ($urlpath == 'admins' || $urlpath == 'roles' || Route::currentRouteName()=='roles.edit'  || Route::currentRouteName()=='admins.edit' || Route::currentRouteName()=='admins.create' || Route::currentRouteName()=='admins.show' ) ? "active" : ""; ?>">
       <a href="#"><i class="fa fa-users"></i> <span>Admins</span>
         <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
       </a>
       <ul class="treeview-menu">
-      <li class="<?php echo ($urlpath == 'roles') ? "active" : ""; ?>"><a href="{!! url('/roles'); !!}">Roles</a></li>
+      <li class="<?php echo ($urlpath == 'roles' || Route::currentRouteName()=='roles.edit'  ) ? "active" : ""; ?>"><a href="{!! url('/roles'); !!}">Roles</a></li>
         <li class="<?php echo ($urlpath == 'admins' || Route::currentRouteName()=='admins.edit' || Route::currentRouteName()=='admins.create' || Route::currentRouteName()=='admins.show') ? "active" : ""; ?>"><a href="{!! url('/admins'); !!}">Manage Admins</a></li>
       </ul>
     </li>
-    <!-- Multi Level -->
+    <li class="<?php echo ($urlpath == 'categories' || Route::currentRouteName()=='categories.create' || Route::currentRouteName()=='categories.edit')  ? "active" : ""; ?>"><a href="{!! url('/categories'); !!}"><i class="fa fa-tag"></i> <span>Categories</span></a></li>
+    <!-- Multi Level 
     <li class="treeview">
       <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
         <span class="pull-right-container">
@@ -47,7 +48,7 @@ $user = Auth::user();
         <li><a href="#">Link in level 2</a></li>
       </ul>
     </li>
-    <!-- Multi Level Ends -->
+    Multi Level Ends -->
     <li>
           <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
