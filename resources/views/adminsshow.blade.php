@@ -70,6 +70,10 @@
                     <td>{{$user->updated_at->format('d-m-Y')}}</td>
                 </tr>
                 <tr>
+                    <td><b>User Role</b></td>
+                    <td>{{$user['role']['role_title']}}</td>
+                </tr>
+                <tr>
                     <td><b>Status</b></td>
                     <td>
                         @if ($user->status === 1)
@@ -92,5 +96,6 @@
                 <a href="{!! url('/admins'); !!}" class="btn btn-default">Back</a>
               </div>
               <!-- /.box-footer -->
+
 </div>
 @endsection

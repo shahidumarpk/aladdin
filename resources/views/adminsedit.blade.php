@@ -106,6 +106,28 @@
                 </div>
 
                 <div class="form-group">
+                  <label class="col-sm-3 control-label">Select Role</label>
+
+                  <div class="col-sm-9">
+                    <select name="role_id" class="form-control">
+                            @if(count($roles) > 0)
+                                <option value="" selected>None</option>
+                                @foreach($roles as $role)    
+                                    <option value="{{$role->id}}" <?php echo ($user->role_id==$role->id) ? "selected" : ""; ?>>{{$role->role_title}}</option>                    
+                                @endforeach
+                            @else
+                                <option value="">None</option>
+                            @endif
+                        </select>
+                        @if ($errors->has('phonenumber'))
+                            <span class="text-red">
+                                <strong>{{ $errors->first('phonenumber') }}</strong>
+                            </span>
+                        @endif
+                  </div>
+                </div>
+
+                <div class="form-group">
                   <label for="status" class="col-sm-3 control-label">Status</label>
 
                   <div class="col-sm-9">

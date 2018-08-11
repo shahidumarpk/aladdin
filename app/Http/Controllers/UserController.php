@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=\App\User::all();
+        //$users=\App\User::all();
+        $users=\App\User::with('role')->get();
         return view('admins',compact('users'));
     }
 
@@ -26,8 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
-        return view('adminscreate');
+        $roles=\App\Role::all();
+        return view('adminscreate',compact('roles'));
 
     }
 
@@ -60,6 +62,7 @@ class UserController extends Controller
         $user->fname=$request->get('fname');
         $user->lname=$request->get('lname');
         $user->email=$request->get('email');
+        $user->role_id=$request->get('role_id');
         $user->password=Hash::make($request->get('password'));
         $user->phonenumber=$request->get('phonenumber');
         $date=date_create($request->get('date'));
@@ -80,8 +83,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user=\App\User::find($id);
-        return view('adminsshow',compact('user','id'));
+        $user=\App\User::with('role')->where('id',$id)->first();
+        return view('adminsshow',compact('user'));
     }
 
     /**
@@ -93,7 +96,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user=\App\User::find($id);
-        return view('adminsedit',compact('user','id'));
+        $roles=\App\Role::all();
+        return view('adminsedit',compact('user','roles','id'));
     }
 
     //For Reset Password
@@ -209,6 +213,7 @@ class UserController extends Controller
             $user->fname=$request->get('fname');
             $user->lname=$request->get('lname');
             $user->email=$request->get('email');
+            $user->role_id=$request->get('role_id');
             $user->phonenumber=$request->get('phonenumber');
             if(!$request->get('profile')){
             $user->status=$request->get('status');
@@ -240,11 +245,17 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = \App\User::find($id);
-        $user->delete();
-        return redirect()->action(
-            'UserController@index' 
-        )->with('success', 'Staff has been deleted.');
-        
+        try{
+            $user = \App\User::find($id);
+            $user->delete();
+            return redirect()->action(
+                'UserController@index' 
+            )->with('success', 'Staff has been deleted.');
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            return redirect()->action(
+                'UserController@index' 
+            )->with('failed', 'Unable to delete, this USER has linked record(s) in system.');
+            //$ex->getMessage()
+        }
     }
 }

@@ -1,5 +1,6 @@
 <?php
 $user = Auth::user();
+$permissions=explode(",",$user->role->permission);
 ?>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
@@ -14,41 +15,48 @@ $user = Auth::user();
     </div>
     <div class="pull-left info">
       <p>{{$user->fname}} {{$user->lname}}</p>
-      <p>Super Admin</p>
+      <!-- <p>Super Admin</p> -->
     </div>
   </div>
-  <?php $urlpath=Request::path();?>
+  <?php $urlpath=Request::path();  ?>
   <!-- Sidebar Menu -->
   <ul class="sidebar-menu" data-widget="tree">
     <li class="header">NAVIGATION</li>
     
-    <li class="<?php echo ($urlpath == 'dashboard') ? "active" : ""; ?>"><a href="{!! url('/dashboard'); !!}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+    @if(count($navs) > 0)
+      @foreach($navs as $nav)
+        @if(count($nav->children))
+         @if(in_array($nav->id,$permissions))
+            <li class="treeview {{ (strpos($nav->mselect,$urlpath) !== false || strpos($nav->mselect, Route::currentRouteName()) !== false  )  ? "active" : "" }}">
+              <a href="#"><i class="{{ $nav->iconclass  }}"></i> <span>{{ $nav->menutitle  }}</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+              </a>
+                @if(! empty ($nav->children))
+                  <ul class="treeview-menu">
+                  @foreach($nav->children as $childnav)
+                    @if(in_array($childnav->id,$permissions))
+                      <li class="{{ (strpos($childnav->mselect,$urlpath) !== false || strpos($childnav->mselect, Route::currentRouteName()) !== false  )  ? "active" : "" }}"><a href="{!! url($childnav->urllink); !!}">{{$childnav->menutitle}}
+                      </a></li>
+                    @endif
+                  @endforeach
+                  </ul>
+                @endif
+            </li> 
+          @endif
 
-    <li class="treeview <?php echo ($urlpath == 'admins' || $urlpath == 'roles' || Route::currentRouteName()=='roles.edit'  || Route::currentRouteName()=='admins.edit' || Route::currentRouteName()=='admins.create' || Route::currentRouteName()=='admins.show' ) ? "active" : ""; ?>">
-      <a href="#"><i class="fa fa-users"></i> <span>Admins</span>
-        <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-      </a>
-      <ul class="treeview-menu">
-      <li class="<?php echo ($urlpath == 'roles' || Route::currentRouteName()=='roles.edit'  ) ? "active" : ""; ?>"><a href="{!! url('/roles'); !!}">Roles</a></li>
-        <li class="<?php echo ($urlpath == 'admins' || Route::currentRouteName()=='admins.edit' || Route::currentRouteName()=='admins.create' || Route::currentRouteName()=='admins.show') ? "active" : ""; ?>"><a href="{!! url('/admins'); !!}">Manage Admins</a></li>
-      </ul>
-    </li>
-    <li class="<?php echo ($urlpath == 'categories' || Route::currentRouteName()=='categories.create' || Route::currentRouteName()=='categories.edit')  ? "active" : ""; ?>"><a href="{!! url('/categories'); !!}"><i class="fa fa-tag"></i> <span>Categories</span></a></li>
-    <!-- Multi Level 
-    <li class="treeview">
-      <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-        <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-      </a>
-      <ul class="treeview-menu">
-        <li><a href="#">Link in level 2</a></li>
-        <li><a href="#">Link in level 2</a></li>
-      </ul>
-    </li>
-    Multi Level Ends -->
+        @else
+          @if(in_array($nav->id,$permissions))
+            <li  class="{{ strpos($nav->mselect,$urlpath)  !== false ? "active" : "" }}"><a href="{!! url($nav->urllink); !!}"><i class="{{ $nav->iconclass  }}"></i> <span>{{ $nav->menutitle  }}</span></a></li>
+          @endif
+        @endif
+        
+      @endforeach
+
+    @else
+      <h1>No Data found</h1>
+    @endif
     <li>
           <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();

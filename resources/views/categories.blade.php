@@ -16,7 +16,7 @@
               <h3 class="box-title">Manage Categories</h3>
               <span class="pull-right">
               <a href="{!! url('/categories/create'); !!}" class="btn btn-info"><span class="fa fa-plus"></span> Add Category</a>
-
+              </span>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

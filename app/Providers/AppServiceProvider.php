@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Providers;
-
+Use View;
+Use DB;
+Use App\Adminmenu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        View::composer('*', function($view)
+        {
+            $adminmenus=\App\Adminmenu::wherenull('parentid')->where('showinnav',1)->with('children')->get();
+            $view->with('navs',$adminmenus);
+        });
     }
 
     /**

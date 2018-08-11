@@ -77,18 +77,17 @@
 </style>
     <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Update New Role</h3>
+              <h3 class="box-title">Add New Role</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal" action="{{action('RoleController@update', $role->id)}}" method="POST" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{!! url('/roles'); !!}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input name="_method" type="hidden" value="PATCH">
             <div class="box-body">
                 <!--Roles -->
                 <div class="form-group col-sm-12">
                     <label for="role_title">Role Title*</label>
-                    <input id="role_title" name="role_title" type="text" class="form-control" placeholder="Enter Role Title" require value="{{$role->role_title}}">
+                    <input id="role_title" name="role_title" type="text" class="form-control" placeholder="Enter Role Title" require value="{{old('role_title')}}">
                     @if ($errors->has('role_title'))
                           <span class="text-red">
                               <strong>{{ $errors->first('role_title') }}</strong>
@@ -105,7 +104,7 @@
                         @if(count($menu->children))
                             <li>
                             <label class="container">
-                            <input type="checkbox" name="role_arr[]" value="{{$menu->id}}" {{(in_array($menu->id, $permission)) ? "checked":""}}>
+                            <input type="checkbox" name="role_arr[]" value="{{$menu->id}}">
                             <span class="checkmark"></span>
                             {{$menu->menutitle}}</label>
                                 @if(! empty ($menu->children))
@@ -113,7 +112,7 @@
                                     @foreach($menu->children as $cmenu)
                                         <li>
                                             <label class="container">
-                                            <input type="checkbox" id="child_menu_2" name="role_arr[]" value="{{$cmenu->id}}" {{(in_array($cmenu->id, $permission)) ? "checked":""}}>
+                                            <input type="checkbox" id="child_menu_2" name="role_arr[]" value="{{$cmenu->id}}">
                                             <span class="checkmark"></span>
                                             {{$cmenu->menutitle}}</label>
                                         </li>
@@ -124,7 +123,7 @@
                         @else
                          <li>
                             <label class="container">
-                            <input type="checkbox"  name="role_arr[]" value="{{$menu->id}}" {{(in_array($menu->id, $permission)) ? "checked":""}}>
+                            <input type="checkbox"  name="role_arr[]" value="{{$menu->id}}">
                             <span class="checkmark"></span>
                             {{$menu->menutitle}}
                             </label>
@@ -141,7 +140,7 @@
               <!-- /.box-body -->
               <div class="box-footer">
                 <a href="{!! url('/roles'); !!}" class="btn btn-default">Cancel</a>
-                <button type="submit" class="btn btn-info pull-right">Update Role</button>
+                <button type="submit" class="btn btn-info pull-right">Add New Role</button>
               </div>
               <!-- /.box-footer -->
             </form>

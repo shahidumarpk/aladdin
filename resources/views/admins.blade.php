@@ -8,6 +8,14 @@
       
     </script>
 @endif
+@if(session('failed'))
+    <script>
+      $( document ).ready(function() {
+        swal("Failed", "{{session('failed')}}", "error");
+      });
+      
+    </script>
+@endif
 
 <div class="row">
         <div class="col-xs-12">
@@ -16,7 +24,7 @@
               <h3 class="box-title">Manage Admins</h3>
               <span class="pull-right">
               <a href="{!! url('/admins/create'); !!}" class="btn btn-info"><span class="fa fa-plus"></span> Add Staff</a>
-
+              </span>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -27,6 +35,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
+                  <th>Role</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -37,6 +46,7 @@
                     <td>{{$user['fname']}} {{$user['lname']}}</td>
                     <td>{{$user['email']}}</td>
                     <td>{{$user['phonenumber']}}</td>
+                    <td>{{$user['role']['role_title']}}</td>
                     <td>
                       @if ($user['status'] === 1)
                       <span class="btn btn-success">Active</span>
@@ -72,6 +82,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
+                  <th>Role</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
