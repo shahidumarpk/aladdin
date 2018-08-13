@@ -21,7 +21,7 @@
      Both of these plugins are recommended to enhance the
      user experience. -->
      <!-- page script -->
-@if (\Request::is('admins') or \Request::is('roles') or \Request::is('categories') or \Request::is('menu') )  
+@if (\Request::is('admins') or \Request::is('roles') or \Request::is('categories') or \Request::is('menu') or \Request::is('customers') or \Request::is('leads') or Route::currentRouteName()=='leads.show' or \Request::is('recordings'))  
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
@@ -39,7 +39,21 @@
     })
   </script>
 @endif
-@if(\Request::is('admins')  or \Request::is('categories') or \Request::is('menu') or \Request::is('roles'))
+@if (Route::currentRouteName()=='leads.show')
+  <script>
+      $(function () {
+        $('#nofeatures').DataTable({
+          'paging'      : false,
+          'lengthChange': false,
+          'searching'   : false,
+          'ordering'    : false,
+          'info'        : false,
+          'autoWidth'   : false
+        })
+      })
+    </script>
+@endif
+@if(\Request::is('admins')  or \Request::is('categories') or \Request::is('menu') or \Request::is('roles') or \Request::is('customers') or \Request::is('leads'))
 <script>
   function archiveFunction(formid) {
     event.preventDefault(); // prevent form submit
@@ -62,10 +76,10 @@
 </script>  
 @endif
 
-@if (\Request::is('profile') or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit' or \Request::is('categories/create') or Route::currentRouteName()=='categories.edit')  
+@if (\Request::is('profile') or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit' or \Request::is('categories/create') or Route::currentRouteName()=='categories.edit' or Route::currentRouteName()=='customers.edit'   or \Request::is('customers/create'))
 <script src="{{ asset('js/fileinput.min.js') }}"></script>
   <script>
-  @if(Route::currentRouteName()=='admins.edit' or \Request::is('profile') )
+  @if(Route::currentRouteName()=='admins.edit' or \Request::is('profile') or Route::currentRouteName()=='customers.edit' )
       var avatarName="{{ asset ('img/staff/'.$user->avatar)}}";
     @else
     var avatarName='{{ asset ('img/placeholder.png') }}';

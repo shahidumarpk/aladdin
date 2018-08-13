@@ -48,7 +48,23 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
  Route::get('/menu/active/{id}', 'AdminmenuController@active')->middleware('auth');
  Route::resource('menu', 'AdminmenuController')->middleware('auth');
 
+ //Customers
+ Route::get('/customers/resetpassword/{id}', 'CustomerController@resetPassword')->middleware('auth')->name('customer.resetpassword');
+ Route::get('/customers/deactivate/{id}', 'CustomerController@deactivate')->middleware('auth');
+ Route::get('/customers/active/{id}', 'CustomerController@active')->middleware('auth');
+ Route::resource('customers', 'CustomerController')->middleware('auth');
+
+ //Leads
+ Route::get('/leads/deactivate/{id}', 'LeadController@deactivate')->middleware('auth');
+ Route::get('/leads/active/{id}', 'LeadController@active')->middleware('auth');
+ Route::resource('leads', 'LeadController')->middleware('auth');
+
+
+ //Recordings
+ Route::post('/leads/storerecording/', 'LeadController@storerecording')->middleware('auth')->name('storerecording');
+ Route::get('/leads/createrecording/{id}', 'LeadController@createrecording')->middleware('auth')->name('createrecording');
+ //Route::resource('recordings', 'RecordingController')->middleware('auth');
 
 
  //Category
- Route::resource('categories', 'CategoryController')->middleware('auth');
+ //Route::resource('categories', 'CategoryController')->middleware('auth');

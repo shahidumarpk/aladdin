@@ -7,7 +7,7 @@ use Validator;
 use DB;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //$users=\App\User::all();
-        //$users=\App\User::with('role')->get();
-        $users=\App\User::with('role')->where('iscustomer',0)->get();
-        return view('admins',compact('users'));
+        $users=\App\User::where('iscustomer',1)->get();
+        return view('customers.customers',compact('users'));
     }
 
     /**
@@ -29,8 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles=\App\Role::all();
-        return view('adminscreate',compact('roles'));
+        return view('customers.create');
 
     }
 
@@ -42,16 +39,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-         
-        $this->validate(request(), [
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'phonenumber' => 'required',
-            'avatar-1' => ['mimes:jpeg,png']
-        ]);
-
         if($request->hasfile('avatar-1'))
          {
             $file = $request->file('avatar-1');
@@ -60,12 +47,20 @@ class UserController extends Controller
          }else{
             $avatarname="default_avatar_male.jpg";
          }
+         
+        $this->validate(request(), [
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'phonenumber' => 'required'
+        ]);
 
         $user= new \App\User;
         $user->fname=$request->get('fname');
         $user->lname=$request->get('lname');
         $user->email=$request->get('email');
-        $user->role_id=$request->get('role_id');
+        $user->iscustomer=1;
         $user->password=Hash::make($request->get('password'));
         $user->phonenumber=$request->get('phonenumber');
         $date=date_create($request->get('date'));
@@ -74,7 +69,7 @@ class UserController extends Controller
         $user->updated_at = strtotime($format);
         $user->avatar = $avatarname;
         $user->save();
-        return redirect('admins/create')->with('success', 'Staff has been created successfully.');
+        return redirect('customers/create')->with('success', 'Staff has been created successfully.');
 
     }
 
@@ -87,7 +82,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user=\App\User::with('role')->where('id',$id)->first();
-        return view('adminsshow',compact('user'));
+        return view('customers.show',compact('user'));
     }
 
     /**
@@ -98,16 +93,17 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user=\App\User::find($id);
-        $roles=\App\Role::all();
-        return view('adminsedit',compact('user','roles','id'));
+        $user=\App\User::where('id',$id)->where('iscustomer',1)->first();
+        //dd($user);
+
+        return view('customers.edit',compact('user','id'));
     }
 
     //For Reset Password
     public function resetPassword($id)
     {
         $user=\App\User::find($id);
-        return view('resetpassword',compact('user','id'));
+        return view('customers.resetpassword',compact('user','id'));
     }
     //For Deactivate
     public function deactivate($id)
@@ -119,7 +115,7 @@ class UserController extends Controller
         $user->updated_at = strtotime($format);
         $user->save();
         return redirect()->action(
-            'UserController@index'
+            'CustomerController@index'
         )->with('success', 'Staff status has been deactivated.');
     }
     //For Active
@@ -132,7 +128,7 @@ class UserController extends Controller
         $user->updated_at = strtotime($format);
         $user->save();
         return redirect()->action(
-            'UserController@index'
+            'CustomerController@index'
         )->with('success', 'Staff status has been active.');
     }
 
@@ -193,7 +189,7 @@ class UserController extends Controller
             $user->save();
             
             return redirect()->action(
-                'UserController@resetPassword', ['id' => $user->id]
+                'CustomerController@resetPassword', ['id' => $user->id]
             )->with('success', 'Password has been reset.');
         }else{
         //Update Staff/User details
@@ -216,7 +212,7 @@ class UserController extends Controller
             $user->fname=$request->get('fname');
             $user->lname=$request->get('lname');
             $user->email=$request->get('email');
-            $user->role_id=$request->get('role_id');
+            $user->iscustomer=1;
             $user->phonenumber=$request->get('phonenumber');
             if(!$request->get('profile')){
             $user->status=$request->get('status');
@@ -231,7 +227,7 @@ class UserController extends Controller
             if($request->get('profile')){
                 $message='Profile details has been updated.';
             }else{
-                $message='Staff details has been updated';
+                $message='Customer details has been updated';
             }
             return redirect()->back()->with('success', $message);
 
@@ -252,12 +248,12 @@ class UserController extends Controller
             $user = \App\User::find($id);
             $user->delete();
             return redirect()->action(
-                'UserController@index' 
-            )->with('success', 'Staff has been deleted.');
+                'CustomerController@index' 
+            )->with('success', 'Customer has been deleted.');
         } catch(\Illuminate\Database\QueryException $ex){ 
             return redirect()->action(
-                'UserController@index' 
-            )->with('failed', 'Unable to delete, this USER has linked record(s) in system.');
+                'CustomerController@index' 
+            )->with('failed', 'Unable to delete, this CUSTOMER has linked record(s) in system.');
             //$ex->getMessage()
         }
     }

@@ -129,11 +129,6 @@
                                 <option value="">None</option>
                             @endif
                         </select>
-                        @if ($errors->has('phonenumber'))
-                            <span class="text-red">
-                                <strong>{{ $errors->first('phonenumber') }}</strong>
-                            </span>
-                        @endif
                   </div>
                 </div>
 

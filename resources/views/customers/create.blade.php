@@ -31,22 +31,20 @@
 }
 </style>
     <div class="box box-info">
-
-
             <div class="box-header with-border">
-              <h3 class="box-title">Edit Staff/User {{$user->fname}} {{$user->lname}}</h3>
+              <h3 class="box-title">Add Customers</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
-            <form class="form-horizontal" action="{{action('UserController@update', $id)}}" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="{!! url('/customers'); !!}" method="post" enctype="multipart/form-data">
             @csrf
-            <input name="_method" type="hidden" value="PATCH">
             <div class="box-body" >
             <div class="row">
               <div class="col-md-4 text-center">
                   <div class="kv-avatar">
                       <div class="file-loading">
+                          
                           <input id="avatar-1" name="avatar-1" type="file">
                       </div>
                   </div>
@@ -57,7 +55,7 @@
                   <label for="fname" class="col-sm-3 control-label">First Name</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" autocomplete="off" value="{{ $user->fname }}" require >
+                    <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" autocomplete="off" value="{{ old('fname') }}" require >
                     @if ($errors->has('fname'))
                           <span class="text-red">
                               <strong>{{ $errors->first('fname') }}</strong>
@@ -69,7 +67,7 @@
                   <label for="lname" class="col-sm-3 control-label">Last Name</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" value="{{ $user->lname }}" autocomplete="off" require>
+                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" value="{{ old('lname') }}" autocomplete="off" require>
                     @if ($errors->has('lname'))
                           <span class="text-red">
                               <strong>{{ $errors->first('lname') }}</strong>
@@ -82,10 +80,23 @@
                   <label for="email" class="col-sm-3 control-label">Email</label>
 
                   <div class="col-sm-9">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ $user->email }}" autocomplete="off" require>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" autocomplete="off" require>
                     @if ($errors->has('email'))
                           <span class="text-red">
                               <strong>{{ $errors->first('email') }}</strong>
+                          </span>
+                      @endif
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="password" class="col-sm-3 control-label">Password</label>
+
+                  <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" require>
+                    @if ($errors->has('password'))
+                          <span class="text-red">
+                              <strong>{{ $errors->first('password') }}</strong>
                           </span>
                       @endif
                   </div>
@@ -96,7 +107,7 @@
                   <label for="phonenumber" class="col-sm-3 control-label">Phone Number</label>
 
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number" value="{{ $user->phonenumber }}" autocomplete="off" require>
+                    <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="Phone Number" value="{{ old('phonenumber') }}" autocomplete="off" require>
                     @if ($errors->has('phonenumber'))
                           <span class="text-red">
                               <strong>{{ $errors->first('phonenumber') }}</strong>
@@ -105,44 +116,14 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Select Role</label>
-
-                  <div class="col-sm-9">
-                    <select name="role_id" class="form-control">
-                            @if(count($roles) > 0)
-                                <option value="" selected>None</option>
-                                @foreach($roles as $role)    
-                                    <option value="{{$role->id}}" <?php echo ($user->role_id==$role->id) ? "selected" : ""; ?>>{{$role->role_title}}</option>                    
-                                @endforeach
-                            @else
-                                <option value="">None</option>
-                            @endif
-                        </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="status" class="col-sm-3 control-label">Status</label>
-
-                  <div class="col-sm-9">
-                    
-                    <select name="status" class="form-control">
-                        <option value="1" <?php echo ($user->status==1) ? "selected" : ""; ?>>Active</option>
-                        <option value="2" <?php echo ($user->status==2) ? "selected" : ""; ?>>Deactivate</option>
-                    </select>
-                  </div>
-                </div>
-
-
               </div>
               </div>
-
+              
           </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <a href="{!! url('/admins'); !!}" class="btn btn-default">Cancel</a>
-                <button type="submit" class="btn btn-info pull-right">Update</button>
+                <button type="submit" class="btn btn-info pull-right">Add</button>
               </div>
               <!-- /.box-footer -->
             </form>

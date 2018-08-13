@@ -34,7 +34,7 @@
 
 
             <div class="box-header with-border">
-              <h3 class="box-title">Edit Staff/User {{$user->fname}} {{$user->lname}}</h3>
+              <h3 class="box-title">Edit Customer  {{$user->fname}} {{$user->lname}}</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -104,24 +104,6 @@
                       @endif
                   </div>
                 </div>
-
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Select Role</label>
-
-                  <div class="col-sm-9">
-                    <select name="role_id" class="form-control">
-                            @if(count($roles) > 0)
-                                <option value="" selected>None</option>
-                                @foreach($roles as $role)    
-                                    <option value="{{$role->id}}" <?php echo ($user->role_id==$role->id) ? "selected" : ""; ?>>{{$role->role_title}}</option>                    
-                                @endforeach
-                            @else
-                                <option value="">None</option>
-                            @endif
-                        </select>
-                  </div>
-                </div>
-
                 <div class="form-group">
                   <label for="status" class="col-sm-3 control-label">Status</label>
 
