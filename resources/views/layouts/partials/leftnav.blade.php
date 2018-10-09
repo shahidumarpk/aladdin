@@ -22,22 +22,21 @@ $permissions=explode(",",$user->role->permission);
   <!-- Sidebar Menu -->
   <ul class="sidebar-menu" data-widget="tree">
     <li class="header">NAVIGATION</li>
-    
     @if(count($navs) > 0)
       @foreach($navs as $nav)
-        @if(count($nav->children))
-         @if(in_array($nav->id,$permissions))
+        @if(count($nav->childrenformenu) > 0)
+         @if(in_array($nav->id,$permissions) &&  $nav->showinnav==1)
             <li class="treeview {{ (strpos($nav->mselect,$urlpath) !== false || strpos($nav->mselect, Route::currentRouteName()) !== false  )  ? "active" : "" }}">
-              <a href="#"><i class="{{ $nav->iconclass  }}"></i> <span>{{ $nav->menutitle  }}</span>
+              <a href="#"><i class="{{ $nav->iconclass  }}"></i> <span>{{ $nav->menutitle  }} </span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
               </a>
-                @if(! empty ($nav->children))
+                @if(! empty ($nav->childrenformenu))
                   <ul class="treeview-menu">
-                  @foreach($nav->children as $childnav)
-                    @if(in_array($childnav->id,$permissions))
-                      <li class="{{ (strpos($childnav->mselect,$urlpath) !== false || strpos($childnav->mselect, Route::currentRouteName()) !== false  )  ? "active" : "" }}"><a href="{!! url($childnav->urllink); !!}">{{$childnav->menutitle}}
+                  @foreach($nav->childrenformenu as $childnav)
+                    @if(in_array($childnav->id,$permissions) && $childnav->showinnav==1)
+                    <li class="{{ (strpos($childnav->mselect,$urlpath) !== false || strpos($childnav->mselect, Route::currentRouteName()) !== false  )  ? "active" : "" }}"><a href="{!! url($childnav->urllink); !!}">{{$childnav->menutitle}}
                       </a></li>
                     @endif
                   @endforeach
@@ -47,15 +46,14 @@ $permissions=explode(",",$user->role->permission);
           @endif
 
         @else
-          @if(in_array($nav->id,$permissions))
+          @if(in_array($nav->id,$permissions)  && $nav->showinnav==1)
             <li  class="{{ strpos($nav->mselect,$urlpath)  !== false ? "active" : "" }}"><a href="{!! url($nav->urllink); !!}"><i class="{{ $nav->iconclass  }}"></i> <span>{{ $nav->menutitle  }}</span></a></li>
           @endif
         @endif
         
       @endforeach
 
-    @else
-      <h1>No Data found</h1>
+  
     @endif
     <li>
           <a href="{{ route('logout') }}"

@@ -89,7 +89,7 @@
           </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="{!! url('/admins'); !!}" class="btn btn-default">Back</a>
+                <a href="{!! url('/customers'); !!}" class="btn btn-default">Back</a>
               </div>
               <!-- /.box-footer -->
 

@@ -122,7 +122,7 @@
           </div>
               <!-- /.box-body -->
               <div class="box-footer">
-                <a href="{!! url('/admins'); !!}" class="btn btn-default">Cancel</a>
+                <a href="{!! url('/customers'); !!}" class="btn btn-default">Cancel</a>
                 <button type="submit" class="btn btn-info pull-right">Add</button>
               </div>
               <!-- /.box-footer -->

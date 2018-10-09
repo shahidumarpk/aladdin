@@ -21,7 +21,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Manage Admins</h3>
+              <h3 class="box-title">Manage Customers</h3>
               <span class="pull-right">
               <a href="{!! url('/customers/create'); !!}" class="btn btn-info"><span class="fa fa-plus"></span> Add Customer</a>
               </span>
@@ -35,7 +35,6 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
-                  <th>Role</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -46,7 +45,6 @@
                     <td>{{$user['fname']}} {{$user['lname']}}</td>
                     <td>{{$user['email']}}</td>
                     <td>{{$user['phonenumber']}}</td>
-                    <td>{{$user['role']['role_title']}}</td>
                     <td>
                       @if ($user['status'] === 1)
                       <span class="btn btn-success">Active</span>
@@ -82,7 +80,6 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
-                  <th>Role</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>

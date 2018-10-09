@@ -34,10 +34,14 @@ class Adminmenu extends Model
     
     public function children(){
         return $this->hasMany( self::class, 'parentid', 'id' );
-      }
-      
-      public function parent(){
+    }
+
+    public function childrenformenu(){
+        return $this->hasMany( self::class, 'parentid', 'id' )->where('showinnav', 1);
+    }
+
+    public function parent(){
         return $this->hasOne( self::class, 'id', 'parentid' );
-      }
+    }
 
 }

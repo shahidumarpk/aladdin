@@ -96,6 +96,12 @@
                 </div>
                 @if(count($menulist) > 0)
                 <div class="form-group  col-sm-12">
+                    <h4>
+                    <span class='fa fa-bars text-blue role_title' ></span> Menu/Navigation in side bar, 
+                    <span class='fa fa-lock text-red role_title' ></span> Permission on action
+                    </h4>
+                  </div>
+                <div class="form-group  col-sm-12">
                     <label>Assign Permissions*</label>
                 </div>
                 <div class="form-group col-sm-6">
@@ -106,7 +112,7 @@
                             <label class="container">
                             <input type="checkbox" name="role_arr[]" value="{{$menu->id}}">
                             <span class="checkmark"></span>
-                            {{$menu->menutitle}}</label>
+                            {!! $menu->showinnav==1 ? "<span class='fa fa-bars text-blue' ></span>" : "<span class='fa fa-lock text-red'></span>" !!} {{$menu->menutitle}}</label>
                                 @if(! empty ($menu->children))
                                 <ul  style="list-style:none;">
                                     @foreach($menu->children as $cmenu)
@@ -114,7 +120,7 @@
                                             <label class="container">
                                             <input type="checkbox" id="child_menu_2" name="role_arr[]" value="{{$cmenu->id}}">
                                             <span class="checkmark"></span>
-                                            {{$cmenu->menutitle}}</label>
+                                            {!! $cmenu->showinnav==1 ? "<span class='fa fa-bars text-blue' ></span>" : "<span class='fa fa-lock text-red'></span>" !!} {{$cmenu->menutitle}}</label>
                                         </li>
                                         @endforeach
                                 </ul>
@@ -125,7 +131,7 @@
                             <label class="container">
                             <input type="checkbox"  name="role_arr[]" value="{{$menu->id}}">
                             <span class="checkmark"></span>
-                            {{$menu->menutitle}}
+                            {!! $menu->showinnav==1 ? "<span class='fa fa-bars text-blue' ></span>" : "<span class='fa fa-lock text-red'></span>" !!} {{$menu->menutitle}}
                             </label>
                         </li>
                         @endif
