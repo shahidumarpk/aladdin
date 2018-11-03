@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Attribute;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class AttributeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.categories');
+        $users=\App\User::where('iscustomer',1)->get();
+        return view('attributes.attributes',compact('users'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('attributes.create');
     }
 
     /**
@@ -56,7 +58,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('categories.edit');
+        return view('attributes.edit');
     }
 
     /**

@@ -54,17 +54,21 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
  Route::get('/customers/active/{id}', 'CustomerController@active')->middleware('auth');
  Route::resource('customers', 'CustomerController')->middleware('auth');
 
- //Leads
- Route::get('/leads/deactivate/{id}', 'LeadController@deactivate')->middleware('auth');
- Route::get('/leads/active/{id}', 'LeadController@active')->middleware('auth');
- Route::resource('leads', 'LeadController')->middleware('auth');
+ //Customers
+ Route::get('/sellers/resetpassword/{id}', 'SellerController@resetPassword')->middleware('auth')->name('seller.resetpassword');
+ Route::get('/sellers/deactivate/{id}', 'SellerController@deactivate')->middleware('auth');
+ Route::get('/sellers/active/{id}', 'SellerController@active')->middleware('auth');
+ Route::resource('sellers', 'SellerController')->middleware('auth');
+
+//Category
+ Route::resource('categories', 'CategoryController')->middleware('auth');
+
+//Products
+Route::resource('attributes', 'AttributeController')->middleware('auth');
 
 
- //Recordings
- Route::post('/leads/storerecording/', 'LeadController@storerecording')->middleware('auth')->name('storerecording');
- Route::get('/leads/createrecording/{id}', 'LeadController@createrecording')->middleware('auth')->name('createrecording');
- //Route::resource('recordings', 'RecordingController')->middleware('auth');
+ //Products
+ Route::resource('products', 'ProductController')->middleware('auth');
 
 
- //Category
- //Route::resource('categories', 'CategoryController')->middleware('auth');
+ 

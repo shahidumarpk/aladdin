@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.categories');
+        $users=\App\User::where('iscustomer',1)->get();
+        return view('products.products',compact('users'));
     }
 
     /**
@@ -23,7 +25,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('products.create');
+
     }
 
     /**
@@ -34,7 +37,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect('products/create')->with('success', 'Product has been created successfully.');
     }
 
     /**
@@ -45,7 +48,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        return view('products.show');
     }
 
     /**
@@ -56,7 +60,24 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('categories.edit');
+        exit;
+        return view('products.edit',compact('id'));
+    }
+
+    
+    //For Deactivate
+    public function deactivate($id)
+    {
+        return redirect()->action(
+            'ProductController@index'
+        )->with('success', 'Product status has been deactivated.');
+    }
+    //For Active
+    public function active($id)
+    {
+        return redirect()->action(
+            'ProductController@index'
+        )->with('success', 'Product status has been active.');
     }
 
     /**
@@ -68,7 +89,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        exit;
+        $message='Product details has been updated';
+        return redirect()->back()->with('success', $message);
     }
 
     /**
@@ -79,6 +102,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        exit;
+        return redirect()->action(
+            'ProductController@index' 
+        )->with('success', 'Product has been deleted.');
     }
 }

@@ -69,7 +69,7 @@ class CustomerController extends Controller
         $user->updated_at = strtotime($format);
         $user->avatar = $avatarname;
         $user->save();
-        return redirect('customers/create')->with('success', 'Staff has been created successfully.');
+        return redirect('customers/create')->with('success', 'Customer has been created successfully.');
 
     }
 
@@ -116,7 +116,7 @@ class CustomerController extends Controller
         $user->save();
         return redirect()->action(
             'CustomerController@index'
-        )->with('success', 'Staff status has been deactivated.');
+        )->with('success', 'Customer status has been deactivated.');
     }
     //For Active
     public function active($id)
@@ -129,7 +129,7 @@ class CustomerController extends Controller
         $user->save();
         return redirect()->action(
             'CustomerController@index'
-        )->with('success', 'Staff status has been active.');
+        )->with('success', 'Customer status has been active.');
     }
 
     /**
@@ -192,7 +192,7 @@ class CustomerController extends Controller
                 'CustomerController@resetPassword', ['id' => $user->id]
             )->with('success', 'Password has been reset.');
         }else{
-        //Update Staff/User details
+        //Update Customer/User details
             if($request->hasfile('avatar-1'))
             {
                 $file = $request->file('avatar-1');
@@ -244,6 +244,9 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
+        return redirect()->action(
+            'CustomerController@index' 
+        )->with('success', 'Customer has been deleted.');
         try{
             $user = \App\User::find($id);
             $user->delete();
