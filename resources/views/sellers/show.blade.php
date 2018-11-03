@@ -30,10 +30,139 @@
     font-weight: normal;
 }
 </style>
+<div class="row">
+      <!-- Seller Stats begin -->
+          
+      <div class="clearfix"></div>
+      <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+          <div class="inner">
+              <h3>K.999.0</h3>
+
+              <p>September Sales</p>
+          </div>
+          <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+          </div>
+          </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+          <div class="inner">
+              <h3>K.450.75</h3>
+
+              <p>Sept Gross Profit</p>
+          </div>
+          <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+          </div>
+          </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+          <div class="inner">
+              <h3>360</h3>
+
+              <p>Sept Orders</p>
+          </div>
+          <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+          </div>
+          
+          </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+          <div class="inner">
+              <h3>85</h3>
+
+              <p>No. of Customers</p>
+          </div>
+          <div class="icon">
+              <i class="ion ion-person-add"></i>
+          </div>
+          
+          </div>
+      </div>
+      <!-- ./col -->
+
+      <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+              <div class="inner">
+                  <h3>K.167.5</h3>
+  
+                  <p>Today Sales</p>
+              </div>
+              <div class="icon">
+                  <i class="fa fa-shopping-cart"></i>
+              </div>
+              </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+              <div class="inner">
+                  <h3>K.105.00</h3>
+  
+                  <p>Today Gross Profit</p>
+              </div>
+              <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+              </div>
+              </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+              <div class="inner">
+                  <h3>12</h3>
+  
+                  <p>Today Orders</p>
+              </div>
+              <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+              </div>
+              
+              </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+              <div class="inner">
+                  <h3>4</h3>
+  
+                  <p>New Customer(s)</p>
+              </div>
+              <div class="icon">
+                  <i class="ion ion-person-add"></i>
+              </div>
+              
+              </div>
+          </div>
+          <!-- ./col -->
+
+      
+                
+        
+    <!-- Seller Stats ends -->
+
+</div>
+
 
     <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Ali Waqas Details</h3>
+              <h3 class="box-title">Lego Shop Business Details</h3>
               <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -44,40 +173,51 @@
             <div class="row">
               <div class="col-md-4 text-center">
                   <div class="kv-avatar">
-                          <img src="{{ asset('img/staff/customerpic.jpg') }}" width="80%">
+                          <img src="{{ asset('img/sellers/shoplogo.jpg') }}" width="100%">
                   </div>
               </div> 
               <div class="col-md-8">
-                <table class="table table-striped">
-                    <tr>
-                        <td><b>Name</b></td>
-                        <td>Ali Waqas</td>
-                    </tr>
-                    <tr>
-                        <td><b>Date of Birth</b></td>
-                        <td>25-Dec-1980</td>
-                    </tr>
-                    <tr>
-                        <td><b>Mobile No.</b></td>
-                        <td>0123456789</td>
-                    </tr>
-                    <tr>
-                        <td><b>Email Address</b></td>
-                        <td>aliwaqas@abc.com</td>
-                    </tr>
-                    <tr>
-                        <td><b>NID</b></td>
-                        <td>1234-5678-90</td>
-                    </tr>
-                    <tr>
-                        <td><b>Status</b></td>
-                        <td>
-                            <span class="text-green"><b>Active</b></span>                        
-                        </td>
-                    </tr>
+              <table class="table table-striped">
+                <tr>
+                    <td><b>Company Name</b></td>
+                    <td>ABC Limited</td>
+                </tr>
+                <tr>
+                    <td><b>Company Registration No.</b></td>
+                    <td>1-9871231</td>
+                </tr>
+                <tr>
+                    <td><b>Business Name</b></td>
+                    <td>Lego Shop</td>
+                </tr>
+                <tr>
+                    <td><b>Business Name Registration No.</b></td>
+                    <td>123456</td>
+                </tr>
+                <tr>
+                    <td><b>Tax Identification No.</b></td>
+                    <td>45698</td>
+                </tr>
                 
-                    
-                    </table>
+                <tr>
+                    <td><b>Created At</b></td>
+                    <td>09-10-2018</td>
+                </tr>
+                <tr>
+                    <td><b>Updated At</b></td>
+                    <td>09-10-2018</td>
+                </tr>
+                <tr>
+                    <td><b>Website Address</b></td>
+                    <td>www.jamesbond.com</td>
+                </tr>
+                <tr>
+                    <td><b>Status</b></td>
+                    <td>
+                        <span class="text-green"><b>Active</b></span>                        
+                    </td>
+                </tr>
+              </table>
               </div>
               </div>
 
@@ -93,6 +233,53 @@
 <!-- Next -->
 <div class="row">
 <div class="col-md-6">
+<div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Contact Details</h3>
+          <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" >
+        <div class="row">
+          <div class="col-md-12">
+          <table class="table table-striped">
+            <tr>
+                <td><b>Name</b></td>
+                <td>James Bond</td>
+            </tr>
+            <tr>
+                <td><b>Business Phone Number</b></td>
+                <td>+0132156</td>
+            </tr>
+            <tr>
+                <td><b>Facsimile No.</b></td>
+                <td>0123456789</td>
+            </tr>
+            <tr>
+                <td><b>Mobile Number</b></td>
+                <td>1234567890</td>
+            </tr>
+            <tr>
+                <td><b>Email Address</b></td>
+                <td>jamesbound@abc.com</td>
+            </tr>
+           
+            
+          </table>
+              
+
+          </div>
+          </div>
+
+      </div>
+         
+</div>
+</div>
+
+<div class="col-md-3">
 <div class="box box-info">
         <div class="box-header with-border">
             <h3 class="box-title">Physical Address</h3>
@@ -136,7 +323,7 @@
 </div>
 </div>
 
-<div class="col-md-6">
+<div class="col-md-3">
         <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">Postal Address</h3>
@@ -234,7 +421,7 @@
 <div class="col-md-6">
         <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Favorites</h3>
+                    <h3 class="box-title">Latest Products</h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>

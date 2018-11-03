@@ -1,3 +1,4 @@
+<script>console.log("{{Route::currentRouteName()}}")</script>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -16,7 +17,7 @@
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-blue.min.css') }}">
-  @if (\Request::is('profile') or \Request::is('customers/create') or Route::currentRouteName()=='customers.edit' or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit' or \Request::is('categories/create') or Route::currentRouteName()=='categories.edit') 
+  @if (\Request::is('profile') or \Request::is('customers/create') or Route::currentRouteName()=='customers.edit' or \Request::is('admins/create') or Route::currentRouteName()=='admins.edit' or \Request::is('categories/create') or Route::currentRouteName()=='categories.edit' or Route::currentRouteName()=='sellers.create' or Route::currentRouteName()=='sellers.edit') 
   <link rel="stylesheet" href="{{ asset('css/fileinput.min.css') }}">
   @endif
   
@@ -33,3 +34,14 @@
 
 <!-- jQuery 3 -->
 <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+
+
+<!--For Date Range Pickers-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="http://erp.nsol.sg/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<link href="http://erp.nsol.sg/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+<!-- For Select2 --> 
+<link href="{{ asset('bower_components/select2/dist/css/select2.min.css') }}" rel="stylesheet">
+<script src="{{ asset('bower_components/select2/dist/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('plugins/input-mask/jquery.inputmask.js') }}"></script>

@@ -83,6 +83,21 @@
                   </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="parent_category" class="col-sm-3 control-label">Attributes</label>
+    
+                    <div class="col-sm-9">
+                        
+                        <select name="attributes" class="form-control" multiple>
+                            <option value="0">None</option>
+                            <option value="1">Color</option>
+                            <option value="2">Shoe Sizes</option>
+                            <option value="3">Age</option>
+                        </select>
+                    </div>
+                </div>
+
+
                   <div class="form-group">
                   <label for="status" class="col-sm-3 control-label">Status</label>
 
@@ -102,17 +117,12 @@
                     <button type="button" class="btn btn-default" data-color="primary"><i class="state-icon glyphicon glyphicon-unchecked"></i>&nbsp;Featured</button>
                     <input type="checkbox" class="hidden"  name="is_feature">
                     </span>
-
-                    <span class="button-checkbox">
-                    <button type="button" class="btn btn-default" data-color="primary"><i class="state-icon glyphicon glyphicon-unchecked"></i>&nbsp;Show on Home</button>
-                    <input type="checkbox" class="hidden"  name="is_home">
-                    </span>
                 </div>
 
                 </div>
 
                 
-              
+            
               </div>
 
           </div>
