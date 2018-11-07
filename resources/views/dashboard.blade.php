@@ -407,9 +407,6 @@
           </div>
 
     </div>
-    <button class="btn btn-sm btn-info btn-flat" onclick='swal("This is a message!", "This is pretty cool.","info");'>Show Alert</button>
-    <button class="btn btn-sm btn-danger btn-flat" onclick='swal("Warning!","This is Wanring","error");'>Show Warning</button>
-    <button class="btn btn-sm btn-success btn-flat" onclick='swal("Good job!", "You clicked the button!", "success");'>Show success</button>
     </div>
  
 @endsection

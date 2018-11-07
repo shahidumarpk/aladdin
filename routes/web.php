@@ -63,12 +63,14 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
 //Category
  Route::resource('categories', 'CategoryController')->middleware('auth');
 
-//Products
+//Attribue Controller 
 Route::resource('attributes', 'AttributeController')->middleware('auth');
-
 
  //Products
  Route::resource('products', 'ProductController')->middleware('auth');
+
+  //Orders
+  Route::resource('orders', 'OrderController')->middleware('auth');
 
 
  
