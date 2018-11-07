@@ -215,7 +215,7 @@
                         <td>K277.97</td>
                         <td>Delivered</td>
 						<td>
-						<a href="#" class="btn btn-primary" title="View Detail"><li class="fa fa-eye"></li> </a>
+						<a href="{!! url('/orders/1'); !!}" class="btn btn-primary" title="View Detail"><li class="fa fa-eye"></li> </a>
 						</td>
                         </tr>
                     </tbody>

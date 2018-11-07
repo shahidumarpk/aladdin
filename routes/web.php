@@ -72,5 +72,9 @@ Route::resource('attributes', 'AttributeController')->middleware('auth');
   //Orders
   Route::resource('orders', 'OrderController')->middleware('auth');
 
+  //Orders
+  Route::get('membershipsreports', 'MembershipController@membershipsreports')->middleware('auth')->name('membershipsreports');
+  Route::resource('memberships', 'MembershipController')->middleware('auth');
+
 
  
