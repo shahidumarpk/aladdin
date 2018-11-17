@@ -75,9 +75,10 @@ Route::resource('attributes', 'AttributeController')->middleware('auth');
   Route::get('orders/conversation', 'OrderController@conversation')->middleware('auth')->name('order.conversation');
   Route::resource('orders', 'OrderController')->middleware('auth');
 
-  //Orders
+  //Membership
   Route::get('membershipsreports', 'MembershipController@membershipsreports')->middleware('auth')->name('membershipsreports');
   Route::resource('memberships', 'MembershipController')->middleware('auth');
 
-
+  //Support Tickets
+  Route::resource('support', 'SupportController')->middleware('auth');
  
