@@ -217,6 +217,19 @@
                         <span class="text-green"><b>Active</b></span>                        
                     </td>
                 </tr>
+
+                <tr>
+                    <td><b>Company Details Verified	</b></td>
+                    <td>
+                        <span class="btn btn-success"><li class="fa fa-check"></li><b> Verified</b></span>                        
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Upload Verified Documents</b></td>
+                    <td>
+                        <a href="#">verified.pdf <li class="fa fa-download"></li></a>
+                    </td>
+                </tr>
               </table>
               </div>
               </div>
