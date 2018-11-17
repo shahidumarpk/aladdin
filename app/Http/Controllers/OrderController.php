@@ -105,4 +105,12 @@ class OrderController extends Controller
             'OrderController@index' 
         )->with('success', 'Order has been deleted.');
     }
+
+    public function messages(){
+        return view('orders.messages');
+    }
+
+    public function conversation(){
+        return view('orders.conversation');
+    }
 }

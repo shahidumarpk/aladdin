@@ -16,15 +16,76 @@
       
     </script>
 @endif
-
+<!-- Advance Filter Begins -->
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" action="{!! url('/sellers'); !!}" method="get" enctype="multipart/form-data">
+          @csrf
+        <div class="box box-success collapsed-box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Search</h3>            
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+              </button>
+            </div>
+            <!-- /.box-tools -->
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body" style="display: none;">
+            
+            <!--Search Form Begins -->
+            <div class="form-group col-md-12">
+                <label>Select Province</label>
+                <select name="shopname" class="form-control select2 select2-hidden-accessible"  data-placeholder="Select a Province" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                 <option value="all">All</option>
+                 <option value="1">Simbu</option>
+                 <option value="2">Eastern Highlands</option>
+                 <option value="2">Enga</option>
+                 <option value="2">Southern Highlands</option>
+                 <option value="2">Jiwaka</option>
+                </select>
+                
+              </div>
+  
+                <div class="form-group col-md-12">
+                  <label>Select District</label>
+                  <select name="status" class="form-control select2 select2-hidden-accessible"  data-placeholder="Select District" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                   <option value="all">All</option>
+                   <option value="1">Lae</option>
+                   <option value="2">Chuave</option>
+                   <option value="2">Gumine</option>
+                   <option value="2">Lufa</option>
+                  </select>
+                  
+                </div>
+             
+              <script>
+                
+                 $(document).ready(function() { 
+                    $('.select2').select2({
+                        placeholder: "Select Staff",
+                        multiple: false,
+                    }); 
+                  });
+              </script>
+            <!-- Search Form Ends -->
+          </div>
+          <!-- /.box-body -->
+          <div class="box-footer clearfix">
+              <button type="submit" class="pull-right btn btn-primary" id="searchRecords">Search
+                <i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <!-- /.box -->
+      </form>
+      </div>
+  </div>
+  <!-- Advance Filter Ends -->
 <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Manage Customers</h3>
-              <span class="pull-right">
-              <a href="{!! url('/customers/create'); !!}" class="btn btn-info"><span class="fa fa-plus"></span> Add Customer</a>
-              </span>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

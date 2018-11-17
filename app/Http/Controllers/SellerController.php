@@ -17,6 +17,13 @@ class SellerController extends Controller
         $users=\App\User::where('iscustomer',1)->get();
         return view('sellers.sellers',compact('users'));
     }
+    
+
+    public function pending()
+    {
+        $users=\App\User::where('iscustomer',1)->get();
+        return view('sellers.pending',compact('users'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -40,6 +47,7 @@ class SellerController extends Controller
         return redirect('sellers/create')->with('success', 'Seller has been created successfully.');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -48,8 +56,11 @@ class SellerController extends Controller
      */
     public function show($id)
     {
-        
-        return view('sellers.show');
+        if($id==19){
+            return view('sellers.show');
+        }else{
+            return view('sellers.showpending');
+        }
     }
 
     /**

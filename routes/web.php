@@ -58,6 +58,7 @@ Route::get('/changepassword', ['as' => 'changepassword' , function () {
  Route::get('/sellers/resetpassword/{id}', 'SellerController@resetPassword')->middleware('auth')->name('seller.resetpassword');
  Route::get('/sellers/deactivate/{id}', 'SellerController@deactivate')->middleware('auth');
  Route::get('/sellers/active/{id}', 'SellerController@active')->middleware('auth');
+ Route::get('/sellers/pending', 'SellerController@pending')->middleware('auth')->name('seller.pending');
  Route::resource('sellers', 'SellerController')->middleware('auth');
 
 //Category
@@ -70,6 +71,8 @@ Route::resource('attributes', 'AttributeController')->middleware('auth');
  Route::resource('products', 'ProductController')->middleware('auth');
 
   //Orders
+  Route::get('orders/messages', 'OrderController@messages')->middleware('auth')->name('order.messages');
+  Route::get('orders/conversation', 'OrderController@conversation')->middleware('auth')->name('order.conversation');
   Route::resource('orders', 'OrderController')->middleware('auth');
 
   //Orders

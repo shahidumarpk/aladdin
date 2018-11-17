@@ -16,7 +16,6 @@
       
     </script>
 @endif
-
 <!-- Advance Filter Begins -->
 <div class="row">
     <div class="col-md-12">
@@ -87,7 +86,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Manage Sellers</h3>
+              <h3 class="box-title">Manage Sellers Pending</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -107,17 +106,13 @@
                 <tbody>
                 @foreach($users as $user)
                   <tr>
-                    <td>James Bond</td>
-                    <td>jamesbond@abc.com</td>
-                    <td>+0132156</td>
-                    <td>Lego Shop</td>
+                    <td>Steve Smith</td>
+                    <td>steve@mcdonald.com</td>
+                    <td>98765432100</td>
+                    <td>McDonald Limited</td>
                     <td>Basic (10 Products)</td>
                     <td>
-                      @if ($user['status'] === 1)
-                      <span class="btn btn-success">Active</span>
-                      @else
-                      <span class="btn btn-danger">Deactive</span>
-                      @endif
+                      <span class="btn btn-danger">Pending Verifiction</span>
                     </td>
                      <!-- For Delete Form begin -->
                     <form id="form{{$user['id']}}" action="{{action('SellerController@destroy', $user['id'])}}" method="post">
@@ -126,15 +121,7 @@
                     </form>
                     <!-- For Delete Form Ends -->
                     <td>
-                      <a href="{!! url('/sellers/'.$user['id']); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
-                      <a href="{!! url('/sellers/'.$user['id'].'/edit'); !!}"  class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>
-                      @if ($user['status'] === 1)
-                        <a href="{!! url('/sellers/deactivate/'.$user['id']); !!}"  class="btn btn-warning" title="Deactivate"><i class="fa fa-times"></i> </a>
-                      @else
-                        <a href="{!! url('/sellers/active/'.$user['id']); !!}"  class="btn btn-info" title="Active"><i class="fa fa-check"></i> </a>
-                      @endif
-                      <button class="btn btn-danger" onclick="archiveFunction('form{{$user['id']}}')"><i class="fa fa-trash"></i></button>
-                      <a href="{!! url('/sellers/resetpassword/'.$user->id); !!}"  class="btn btn-info" title="Reset Password"><i class="fa fa-key"></i> </a>
+                      <a href="{!! url('/sellers/20'); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
                     </td>
                    
                     

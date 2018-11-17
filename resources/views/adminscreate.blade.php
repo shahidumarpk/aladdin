@@ -115,6 +115,20 @@
                       @endif
                   </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Assign Province</label>
+                        <div class="col-sm-9">
+                            <select name="shopname" class="form-control">
+                            <option value="1">Simbu</option>
+                            <option value="2">Eastern Highlands</option>
+                            <option value="2">Enga</option>
+                            <option value="2">Southern Highlands</option>
+                            <option value="2">Jiwaka</option>
+                            </select>
+                        </div>
+                </div>
+
                 <div class="form-group">
                   <label class="col-sm-3 control-label">Select Role</label>
 

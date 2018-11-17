@@ -21,7 +21,7 @@
      Both of these plugins are recommended to enhance the
      user experience. -->
      <!-- page script -->
-@if (\Request::is('admins') or \Request::is('roles') or \Request::is('categories') or \Request::is('menu') or \Request::is('customers') or \Request::is('leads') or Route::currentRouteName()=='leads.show' or \Request::is('recordings') or \Request::is('sellers') or \Request::is('products') or \Request::is('orders') or \Request::is('attributes') or \Request::is('memberships') or \Request::is('membershipsreports'))  
+@if (\Request::is('admins') or \Request::is('roles') or \Request::is('categories') or \Request::is('menu') or \Request::is('customers') or \Request::is('leads') or Route::currentRouteName()=='leads.show' or \Request::is('recordings') or \Request::is('sellers') or \Request::is('products') or \Request::is('orders') or \Request::is('attributes') or \Request::is('memberships') or \Request::is('membershipsreports') or  Route::currentRouteName()=='seller.pending' or Route::currentRouteName()=='order.messages')  
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
