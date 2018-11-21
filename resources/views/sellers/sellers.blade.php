@@ -100,6 +100,7 @@
                   <th>Phone Number</th>
                   <th>Company Name</th>
                   <th>Membership</th>
+                  <th>Account Type</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -112,6 +113,7 @@
                     <td>+0132156</td>
                     <td>Lego Shop</td>
                     <td>Basic (10 Products)</td>
+                    <td>Business</td>
                     <td>
                       @if ($user['status'] === 1)
                       <span class="btn btn-success">Active</span>
@@ -149,6 +151,7 @@
                   <th>Phone Number</th>
                   <th>Company Name</th>
                   <th>Membership</th>
+                  <th>Account Type</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>

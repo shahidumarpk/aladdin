@@ -24,7 +24,7 @@ class SupportController extends Controller
      */
     public function create()
     {
-        //
+        return view('support.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class SupportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        exit;
     }
 
     /**

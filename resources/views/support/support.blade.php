@@ -86,6 +86,9 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Manage Orders</h3>
+              <span class="pull-right">
+                <a href="{!! url('/support/create'); !!}" class="btn btn-info">New Ticket</a>
+              </span>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -95,8 +98,10 @@
                   <th>Ticket No.</th>
                   <th>Shop Name</th>
                   <th>Subject</th>
+                  <th>Assigned Staff</th>
                   <th>Date</th>
                   <th>Status</th>
+                  <th>Resolved In</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -106,10 +111,12 @@
                     <td>9898989</td>
                     <td>Lego Shop (James Bond)</td>
                     <td>Problem in creating new product</td>
+                    <td>Michael Bole</td>
                     <td>01-Jan-2018</td>
                     <td>
                       <span class="btn btn-warning">Inprocess</span>
                     </td>
+                    <td>-</td>
                     <td>
                       <a href="{!! url('/support/1'); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
                     </td>
@@ -118,10 +125,26 @@
                       <td>9898990</td>
                       <td>McDonald (Steve Smith)</td>
                       <td>Unable to upgrade membership</td>
+                      <td>Shahid Umar</td>
                       <td>01-Jan-2018</td>
                       <td>
                         <span class="btn btn-info">New</span>
                       </td>
+                      <td>-</td>
+                      <td>
+                        <a href="{!! url('/support/1'); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>9898555</td>
+                      <td>McDonald (Steve Smith)</td>
+                      <td>Payment problem</td>
+                      <td>Shahid Umar</td>
+                      <td>01-Jan-2018</td>
+                      <td>
+                        <span class="btn btn-success">Closed</span>
+                      </td>
+                      <td>2 Days</td>
                       <td>
                         <a href="{!! url('/support/1'); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
                       </td>
@@ -133,8 +156,10 @@
                     <th>Ticket No.</th>
                     <th>Shop Name</th>
                     <th>Subject</th>
+                    <th>Assigned Staff</th>
                     <th>Date</th>
                     <th>Status</th>
+                    <th>Resolved In</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>

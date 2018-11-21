@@ -141,9 +141,12 @@
     <!-- this row will not appear when printing -->
     <div class="row no-print">
       <div class="col-xs-12">
-        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
+        <span class="pull-right">
+        <button type="button" class="btn btn-primary" style="margin-right: 5px;">
           <i class="fa fa-plane"></i> Track
         </button>
+        <a href="{!! url('/orders/createticket'); !!}" class="btn btn-info"><i class="fa fa-support"></i> Create Complaint</a>
+        </span>
       </div>
     </div>
   </section>

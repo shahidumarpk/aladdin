@@ -24,6 +24,9 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Manage Orders Messages</h3>
+              <span class="pull-right">
+                  <a href="{!! url('/orders/createticket'); !!}" class="btn btn-info">New Complaint</a>
+              </span>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

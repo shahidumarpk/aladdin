@@ -147,6 +147,19 @@
                     </div>
 
                     <div class="form-group">
+                      <label for="status" class="control-label">Select Status</label>
+                          <select class="form-control" id="status" name="status" placeholder="Select Status" required >
+                              <option value="1" selected>Inprocess</option>
+                              <option value="2">Closed</option>
+                          </select>
+                          @if ($errors->has('status'))
+                              <span class="text-red">
+                                  <strong>{{ $errors->first('status') }}</strong>
+                              </span>
+                          @endif
+                  </div>
+
+                    <div class="form-group">
                         <span class="pull-right">
                           <a href="javascript: void();" class="btn btn-primary" onClick='swal("Success", "Shop has been activated Successfully", "success");'>Reply</a>
                         </span>

@@ -212,6 +212,12 @@
                     <td>www.mcdonald.com</td>
                 </tr>
                 <tr>
+                    <td><b>Account Type </b></td>
+                    <td>
+                        Business
+                    </td>
+                </tr>
+                <tr>
                     <td><b>Status</b></td>
                     <td>
                         <span class="text-red"><b>Pending Verifiction</b></span>                        

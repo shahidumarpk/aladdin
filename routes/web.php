@@ -73,6 +73,7 @@ Route::resource('attributes', 'AttributeController')->middleware('auth');
   //Orders
   Route::get('orders/messages', 'OrderController@messages')->middleware('auth')->name('order.messages');
   Route::get('orders/conversation', 'OrderController@conversation')->middleware('auth')->name('order.conversation');
+  Route::get('orders/createticket', 'OrderController@createticket')->middleware('auth')->name('order.messages');
   Route::resource('orders', 'OrderController')->middleware('auth');
 
   //Membership

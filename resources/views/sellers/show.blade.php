@@ -212,6 +212,18 @@
                     <td>www.jamesbond.com</td>
                 </tr>
                 <tr>
+                    <td><b>Membership </b></td>
+                    <td>
+                        Basic (10 Products)                      
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Account Type </b></td>
+                    <td>
+                        Business
+                    </td>
+                </tr>
+                <tr>
                     <td><b>Status</b></td>
                     <td>
                         <span class="text-green"><b>Active</b></span>                        

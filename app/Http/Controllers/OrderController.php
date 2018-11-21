@@ -113,4 +113,8 @@ class OrderController extends Controller
     public function conversation(){
         return view('orders.conversation');
     }
+
+    public function createticket(){
+        return view('orders.createticket');
+    }
 }

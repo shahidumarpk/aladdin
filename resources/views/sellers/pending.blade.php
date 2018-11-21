@@ -99,6 +99,7 @@
                   <th>Phone Number</th>
                   <th>Company Name</th>
                   <th>Membership</th>
+                  <th>Account Type</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -111,6 +112,7 @@
                     <td>98765432100</td>
                     <td>McDonald Limited</td>
                     <td>Basic (10 Products)</td>
+                    <td>Business</td>
                     <td>
                       <span class="btn btn-danger">Pending Verifiction</span>
                     </td>
@@ -136,6 +138,7 @@
                   <th>Phone Number</th>
                   <th>Company Name</th>
                   <th>Membership</th>
+                  <th>Account Type</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>

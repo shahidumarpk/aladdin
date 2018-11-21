@@ -111,6 +111,7 @@
                     </td>
                     <td>
                       <a href="{!! url('/orders/1'); !!}" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>    
+                      <a href="{!! url('/orders/createticket'); !!}" class="btn btn-info"><i class="fa fa-support"></i></a>
                     </td>
                    
                     
